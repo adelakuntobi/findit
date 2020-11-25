@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from '../images/logo.svg'
 import Flex from '../containers/flex'
 import { HiShoppingCart } from 'react-icons/hi'
 import { BiSearch } from 'react-icons/bi'
 import { FaUser } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-function Navbar() {
+function Navbar({ cart }) {
   const [scrolled, setScrolled] = React.useState(false);
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -17,10 +18,16 @@ function Navbar() {
       setScrolled(false);
     }
   }
+  const [cartNum, setCartNum] = useState(0)
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
-  })
+    let count = 0
+    cart.forEach(item => {
+      count += item.quantity
+    });
+    setCartNum(count)
+  }, [cart])
   let navbarClasses = ['navbar'];
   if (scrolled) {
     navbarClasses.push('scrolled');
@@ -39,18 +46,18 @@ function Navbar() {
             <input type="search" placeholder="Search items, categories" className="w-64 px-2 py-1 border-0 outline-none bg-gray-100" />
           </Flex>
           <Link to="/login">
-          <button className="hidden md:flex items-center justify-center py-3 px-8 bg-orange rounded border-0 outline-none text-white">
-            {/* Login */}
-            <FaUser className="text-lg mr-2" />
+            <button className="hidden md:flex items-center justify-center py-3 px-8 bg-orange rounded border-0 outline-none text-white">
+              {/* Login */}
+              <FaUser className="text-lg mr-2" />
         Login
       </button>
-      </Link>
+          </Link>
           <Link to="/cart">
             <Flex className="relative justify-center px-8">
               {/* Cart */}
               <HiShoppingCart className="text-lg mr-2" />
         Cart
-        <Flex className="bg-red-700 top-0 right-0 rounded-full text-white text-xs h-5 w-5 justify-center">2</Flex>
+        <Flex className="bg-red-700 top-0 right-0 rounded-full text-white text-xs h-5 w-5 justify-center">{cartNum}</Flex>
             </Flex>
           </Link>
         </Flex>
@@ -58,5 +65,10 @@ function Navbar() {
     </nav>
   )
 }
+const mapStateToProps = (state) => {
+  return {
+    cart: state.shop.cart
+  }
+}
 
-export default Navbar
+export default connect(mapStateToProps)(Navbar)

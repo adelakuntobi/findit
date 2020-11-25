@@ -6,6 +6,7 @@ export const addToCart = (productID) => {
     }
   }
 }
+
 export const removeFromCart = (productID) => {
   return {
     type: "REMOVE_FROM_CART",
@@ -14,16 +15,23 @@ export const removeFromCart = (productID) => {
     }
   }
 }
+
+export const clearCart = (item) => {
+  return {
+    type: "CLEAR_ALL_ITEMS",
+    payload: item
+  }
+}
 export const adjustQuantity = (productID, value) => {
   return {
     type: "CHANGE_QUANTITY_OF_CART",
     payload: {
       id: productID,
-      qty: value
+      quantity: value
     }
   }
 }
-export const loadAllProducts = (productID) => {
+export const loadAllProducts = (item) => {
   return {
     type: "LOAD_ALL_PRODUCTS",
     payload: item
