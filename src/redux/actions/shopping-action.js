@@ -1,3 +1,4 @@
+
 export const addToCart = (productID) => {
   return {
     type: "ADD_TO_CART",
@@ -16,10 +17,10 @@ export const removeFromCart = (productID) => {
   }
 }
 
-export const clearCart = (item) => {
+export const clearCart = () => {
   return {
     type: "CLEAR_ALL_ITEMS",
-    payload: item
+    // payload: 
   }
 }
 export const adjustQuantity = (productID, value) => {

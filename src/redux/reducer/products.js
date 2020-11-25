@@ -6,7 +6,7 @@ const initialState = {
   loading: false
 }
 
-
+// A reducer function to receive the data from the API
 const products = (state = initialState, action) => {
   switch (action.type) {
     case "DATA_LOADING":

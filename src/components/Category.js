@@ -2,16 +2,15 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
-
 import EachItem from './EachItem'
 import { getData } from '../redux/actions/fetch-data';
 
 
 function Category(props) {
-
+  // Destructing the props object
   const { products, getData } = props
   useEffect(() => {
-    getData()
+    getData() //A props action dispatched so that it fetcched the data
   }, [getData])
   return (
     <section className="bg-white z-10 py-16 container mx-auto">
@@ -25,14 +24,16 @@ function Category(props) {
           <Tab className="cursor-pointer py-2 px-6 font-medium text-lg" >Women</Tab>
         </TabList>
 
+        {/* Tab for all the categories */}
         <TabPanel className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 w-10/12">
           {products.map((item) =>
             <EachItem key={item.id} productData={item} />)}
         </TabPanel>
 
+        {/* Tab for men's categories */}
         <TabPanel className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 w-10/12">
           {products.map((item) => {
-
+            // Performing an if function to check for the category
             if (item.category === "men clothing") {
               return <EachItem key={item.id} productData={item} />
             }
@@ -40,6 +41,8 @@ function Category(props) {
           }
           )}
         </TabPanel>
+
+        {/* Tab for jewelery categories */}
         <TabPanel className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 w-10/12">
           {products.map((item) => {
             if (item.category === "jewelery") {
@@ -49,6 +52,8 @@ function Category(props) {
           }
           )}
         </TabPanel>
+
+        {/* Tab for electronics categories */}
         <TabPanel className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 w-10/12">
           {products.map((item) => {
             if (item.category === "electronics") {
@@ -58,6 +63,8 @@ function Category(props) {
           }
           )}
         </TabPanel>
+
+        {/* Tab for women's categories */}
         <TabPanel className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 w-10/12">
           {products.map((item) => {
             if (item.category === "women clothing") {
@@ -75,8 +82,6 @@ function Category(props) {
 
 const mapStateToProps = (state) => ({
   products: state.products.data,
-  errorMsg: state.products.errorMsg,
-  loading: state.products.loading,
 })
 
 const mapDispatchToProps = (dispatch) => {

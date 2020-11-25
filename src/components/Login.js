@@ -3,6 +3,7 @@ import { FaUser } from 'react-icons/fa'
 import { BsLockFill } from 'react-icons/bs'
 import theSVG from '../images/login.svg'
 function Login() {
+  // Login page
   return (
     <section className="container w-10/12 mx-auto flex justify-between items-start pt-12">
       <img className="w-6/12" src={theSVG} alt="login page" />

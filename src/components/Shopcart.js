@@ -11,9 +11,9 @@ function Shopcart(props) {
     adjustQuantity(itemData.id, e.target.value)
   }
   return (
-    <section className="container mx-auto flex flex-col md:flex-row justify-between items-center w-8/12 my-6">
+    <section className="container mx-auto flex flex-col md:flex-row justify-between items-center w-full md:w-8/12 my-6">
       <img className="w-6/12 md:w-3/12 mx-6 " src={itemData.image} alt="cart" />
-      <div className="flex justify-between flex-col text-left mx-8 items-start">
+      <div className="flex justify-between flex-col text-left my-4 mx-4 md:mx-8 items-start">
         <div>
           <h1 className="text-xl font-bold">{itemData.title}</h1>
           <p className="my-4">{itemData.description}</p>
@@ -21,7 +21,10 @@ function Shopcart(props) {
         </div>
         <div>
           <label htmlFor="quantity">Quantity:</label>
-          <input min="1" type="number" name="quantity" value={inputValue} onChange={changeHandler} />
+          <input 
+          min="1" type="number" step="1"
+          name="quantity" className="px-1 w-12 border-black border"
+          value={inputValue} onChange={changeHandler} />
         </div>
         <button onClick={() => removeFromCart(itemData.id)}
           className="rounded py-2 px-5 bg-orange text-white mr-4">Delete</button>

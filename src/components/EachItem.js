@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 import { addToCart, loadAllProducts } from '../redux/actions/shopping-action'
 
 function EachItem(props) {
-  const { productData, addToCart, loadAllProducts } = props
+  const { productData, addToCart, loadAllProducts } = props //Destructing the props
 
   return (
     <div className="flex flex-col lg:flex-row justify-between lg:justify-start my-5">
-      <img className="w-32 mx-auto lg:ml-0 lg:mr-4 object-contain" src={productData.image} alt={productData.title} />
+      <img className="w-32 mx-auto lg:ml-0 lg:mr-4 object-contain my-auto" src={productData.image} alt={productData.title} />
       <div className="flex justify-between flex-col py-5 text-center lg:text-left">
         <h1 className="break-words">{productData.title}</h1>
         <p className="hidden">{productData.description}</p>
@@ -26,7 +26,7 @@ function EachItem(props) {
     </div>
   )
 }
-
+// Getting the actions and mapping them to props
 const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (id) => dispatch(addToCart(id)),
