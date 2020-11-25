@@ -23,6 +23,14 @@ body {
   height: 700px;
   z-index: 1;
 }
+.z-11{
+  width: 1000px;
+  // top: -100px;
+  right: -600px;
+  height: 1000px;
+  border-radius: 50%;
+  z-index: -1;
+}
 
 .scrolled {
   position: fixed;
@@ -31,7 +39,7 @@ body {
   // background-color: lightblue;
   // max-width: 1440px;
   margin: auto;
-  width: 100vw;
+  width: 100%;
   z-index: 30;
   box-shadow: 2px 4px 7px 3px #0000000f;
 

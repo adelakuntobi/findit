@@ -6,6 +6,8 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.21.0",
+    "lodash": "^4.17.20",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -15,6 +17,8 @@
     "react-scripts": "3.4.3",
     "react-tabs": "^3.1.1",
     "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
     "tailwindcss": "^1.9.5"
   },
   "scripts": {

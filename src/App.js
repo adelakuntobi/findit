@@ -1,17 +1,24 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.scss';
-import Category from './components/Category';
+import Cart from './components/Cart';
 import Footer from './components/Footer';
-import Header from './components/Header';
+import Fullpage from './components/Fullpage';
+import Login from './components/Login';
 import Navbar from './components/Navbar';
+import Personal from './components/Personal';
+
 
 function App() {
   return (
-    <div className="App">
-      {/* <h1>This page works</h1> */}
+    <div className="App overflow-x-hidden">
       <Navbar />
-      <Header />
-      <Category />
+      <Switch>
+        <Route exact path="/" component={Fullpage} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/cart" component={Cart} />
+        <Route exact path="/product/:id" component={Personal} />
+      </Switch>
       <Footer />
     </div>
   );

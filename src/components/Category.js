@@ -1,8 +1,42 @@
-import React from 'react'
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
-import EachItem from './EachItem'
 
-function Category() {
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux';
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
+import _ from 'lodash'
+import EachItem from './EachItem'
+import { getData } from '../redux/actions/fetch-data';
+import TabPanelJs from './TabPanel';
+
+function Category(props) {
+
+  const { data, errorMsg, loading } = props
+
+  useEffect(() => {
+    props.getData()
+  }, [props])
+
+
+  const showData = () => {
+    if (!_.isEmpty(data)) {
+      return data.map(product => {
+        return <EachItem
+          key={product.id} name={product.title}
+          description={product.description} price={product.price}
+          src={product.image} />
+      })
+
+    }
+
+    if (loading) {
+      return <p>Loading loading load ding ding ding loading</p>
+    }
+
+    if (errorMsg !== "") {
+      return <p>Unable to fetch data</p>
+    }
+
+    return <p>Unable to get data sha check connection</p>
+  }
   return (
     <section className="bg-white z-10 py-16 container mx-auto">
       <h2 className="text-4xl font-bold text-center border-black border-dotted">Popular Category</h2>
@@ -16,44 +50,38 @@ function Category() {
         </TabList>
 
         <TabPanel className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 w-10/12">
-          <EachItem src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" />
-          <EachItem src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"/>
-          <EachItem src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" />
-          <EachItem src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg"/>
+          {showData()}
         </TabPanel>
 
-        <TabPanel className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 w-10/12">
-          <EachItem src="https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg" />
-          <EachItem src="https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg" />
-          <EachItem src="https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg" />
-          <EachItem src="https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg" />
+        <TabPanel>
+          <TabPanelJs data={data} category="men clothing" />
+        </TabPanel>
+        <TabPanel>
+          <TabPanelJs data={data} category="jewelery" />
+        </TabPanel>
+        <TabPanel>
+          <TabPanelJs data={data} category="electronics" />
+        </TabPanel>
+        <TabPanel>
+          <TabPanelJs data={data} category="women clothing" />
         </TabPanel>
 
-        <TabPanel className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 w-10/12">
-          <EachItem src="https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg" />
-          <EachItem src="https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg" />
-          <EachItem src="https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg" />
-          <EachItem src="https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg" />
-        </TabPanel>
 
-        <TabPanel className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 w-10/12">
-          <EachItem src= "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg"/>
-          <EachItem src="https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg" />
-          <EachItem src="https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg" />
-          <EachItem src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" />
-        </TabPanel>
-
-        <TabPanel className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 w-10/12">
-        <EachItem src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" />
-          <EachItem src="https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg" />
-          <EachItem src="https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg" />
-          <EachItem src="https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg" />
-        </TabPanel>
-        
       </Tabs>
 
     </section>
   )
 }
 
-export default Category
+const mapStateToProps = (state) => ({
+  data: state.products.data,
+  errorMsg: state.products.errorMsg,
+  loading: state.products.loading,
+})
+
+const mapDispatchToProps = {
+  getData: getData
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Category)
