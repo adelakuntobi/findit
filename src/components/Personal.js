@@ -6,7 +6,7 @@ function Personal({ addToCart, currentItem }) {
   return (
     <section className="container mx-auto flex flex-col md:flex-row justify-between items-center w-full md:w-8/12 py-12">
       <img className="w-1/2 md:w-4/12 mx-6 " src={currentItem.image} alt={currentItem.title} />
-      <div className="flex justify-between flex-col md:flex-row text-left mx-4 md:mx-8">
+      <div className="flex justify-between flex-col text-left mx-4 md:mx-8">
         <div>
           <h1 className="text-3xl font-bold">{currentItem.title}</h1>
           <p className="my-4 text-lg">{currentItem.description}</p>
