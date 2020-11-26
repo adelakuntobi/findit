@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 import EachItem from './EachItem'
-import { getData } from '../redux/actions/fetch-data';
+import { getData } from '../../redux/actions/fetch-data';
 
 
 function Category(props) {

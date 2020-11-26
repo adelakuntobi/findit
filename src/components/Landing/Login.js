@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaUser } from 'react-icons/fa'
 import { BsLockFill } from 'react-icons/bs'
-import theSVG from '../images/login.svg'
+import theSVG from '../../images/login.svg'
 function Login() {
   // Login page
   return (

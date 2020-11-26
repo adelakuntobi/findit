@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import theSVG from '../images/theSVG1.svg'
-import theSVG1 from '../images/theSVG3.svg'
+import theSVG from '../../images/theSVG1.svg'
+import theSVG1 from '../../images/theSVG3.svg'
 function Header() {
   // Landing image and text
   return (

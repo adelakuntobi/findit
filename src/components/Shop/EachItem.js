@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { addToCart, loadAllProducts } from '../redux/actions/shopping-action'
+import { addToCart, loadAllProducts } from '../../redux/actions/shopping-action'
 
 function EachItem(props) {
   const { productData, addToCart, loadAllProducts } = props //Destructing the props

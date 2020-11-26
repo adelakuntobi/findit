@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addToCart } from '../redux/actions/shopping-action'
+import { addToCart } from '../../redux/actions/shopping-action'
 
 function Personal({ addToCart, currentItem }) {
   return (

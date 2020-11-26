@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import logo from '../images/logo.svg'
-import Flex from '../containers/flex'
+import logo from '../../images/logo.svg'
+import Flex from '../../containers/flex'
 import { HiShoppingCart } from 'react-icons/hi'
 import { FaUser } from 'react-icons/fa'
 import { Link } from 'react-router-dom'

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.scss';
-import Cart from './components/Cart';
-import Category from './components/Category';
-import Footer from './components/Footer';
-import Fullpage from './components/Fullpage';
-import Login from './components/Login';
-import Navbar from './components/Navbar';
-import Personal from './components/Personal';
+import Cart from './components/Cart/Cart';
+import Category from './components/Shop/Category';
+import Footer from './components/Landing/Footer';
+import Fullpage from './components/Landing/Fullpage';
+import Login from './components/Landing/Login';
+import Navbar from './components/Landing/Navbar';
+import Personal from './components/Shop/Personal';
 
 
 function App() {

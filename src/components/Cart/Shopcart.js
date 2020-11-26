@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { removeFromCart,adjustQuantity } from '../redux/actions/shopping-action'
+import { removeFromCart,adjustQuantity } from '../../redux/actions/shopping-action'
 
 function Shopcart(props) {
   const { itemData, removeFromCart, adjustQuantity } = props
@@ -19,11 +19,11 @@ function Shopcart(props) {
           <p className="my-4">{itemData.description}</p>
           <h2 className="text-3xl font-extrabold">$ {itemData.price}</h2>
         </div>
-        <div>
-          <label htmlFor="quantity">Quantity:</label>
+        <div className="my-4">
+          <label className="py-2" htmlFor="quantity">Quantity:</label>
           <input 
           min="1" type="number" step="1"
-          name="quantity" className="px-1 w-12 border-black border"
+          name="quantity" className="px-2 py-1 rounded-lg text-xs w-12 border-black border"
           value={inputValue} onChange={changeHandler} />
         </div>
         <button onClick={() => removeFromCart(itemData.id)}
