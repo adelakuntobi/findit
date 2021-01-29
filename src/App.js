@@ -8,6 +8,7 @@ import Fullpage from './components/Landing/Fullpage';
 import Login from './components/Landing/Login';
 import Navbar from './components/Landing/Navbar';
 import Personal from './components/Shop/Personal';
+import Signup from './components/Landing/Signup';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Fullpage} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={Signup} />
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/shop" component={Category} />
         <Route exact path="/product/:id" component={Personal} />

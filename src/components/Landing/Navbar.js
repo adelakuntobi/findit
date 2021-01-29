@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import logo from '../../images/logo.svg'
 import Flex from '../../containers/flex'
 import { HiShoppingCart } from 'react-icons/hi'
+import { BsPersonPlusFill } from 'react-icons/bs'
 import { FaUser } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -44,6 +45,13 @@ function Navbar({ cart }) {
               {/* Login */}
               <FaUser className="text-lg mr-2" />
         Login
+      </button>
+          </Link>
+          <Link to="/signup">
+            <button className="hidden md:flex items-center justify-center py-2 px-4 bg-orange rounded border-0 outline-none text-white mx-4">
+              {/* Login */}
+              <BsPersonPlusFill className="text-lg mr-2" />
+        Sign up
       </button>
           </Link>
           <Link to="/cart">

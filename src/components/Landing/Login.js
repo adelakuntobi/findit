@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaUser } from 'react-icons/fa'
 import { BsLockFill } from 'react-icons/bs'
-import theSVG from '../../images/login.svg'
+import theSVG from '../../images/signup1.svg'
 function Login() {
   // Login page
   return (
@@ -19,6 +19,7 @@ function Login() {
           <BsLockFill className="text-lg mr-2" />
           <input className="border-0 outline-none w-64" placeholder="......." />
         </div>
+        <button className="py-3 my-5 w-full bg-orange rounded border-0 outline-none text-white">Login</button>
       </form>
     </section>
   )
