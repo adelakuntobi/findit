@@ -5,9 +5,9 @@ import theSVG from '../../images/signup1.svg'
 function Login() {
   // Login page
   return (
-    <section className="container w-10/12 mx-auto flex justify-between items-start pt-12">
-      <img className="w-6/12" src={theSVG} alt="login page" />
-      <form className="flex flex-col justify-center items-start w-5/12">
+    <section className="container w-11/12 md:w-10/12 mx-auto flex flex-col md:flex-row justify-between items-start pt-12">
+      <img className=" w-full md:w-6/12 mb-12 md:mb-0" src={theSVG} alt="login page" />
+      <form className="flex flex-col justify-center items-start w-full md:w-5/12">
         <h1 className="text-4xl font-bold text-center mb-8 mx-auto">Login</h1>
         <label className="text-xl font-medium mb-1">Email</label>
         <div className="flex justify-start py-2 px-4 border w-full mb-4 rounded items-center">
