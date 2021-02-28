@@ -9,12 +9,14 @@ import Login from './components/Landing/Login';
 import Navbar from './components/Landing/Navbar';
 import Personal from './components/Shop/Personal';
 import Signup from './components/Landing/Signup';
+import Loader from './components/Loader';
 
 
 function App() {
   return (
     <div className="App overflow-hidden">
       <Navbar />
+      <Loader />
       {/* <Paypal /> */}
       <Switch>
         <Route exact path="/" component={Fullpage} />

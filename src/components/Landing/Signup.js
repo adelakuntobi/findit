@@ -25,20 +25,22 @@ function Signup() {
   // On submit of the form
   const onSubmitForm = async (e) => {
     e.preventDefault();
-    // Authenticate that password and confirm password are the same thing
+    // If the fields are empty
     if (!name || !email || !password || !confirmPassword || !phoneNumber) {
-       toast.error("Please fill in the field(s)")
-       setErrorMsg("Please fill in the field(s)")
-     }
+      toast.error("Please fill in the field(s)")
+      setErrorMsg("Please fill in the field(s)")
+    }
+    // Authenticate that password and confirm password are the same thing
     else if (password !== confirmPassword) {
       setErrorMsg("Password and confirm password doesn't match")
       toast.error("Password do not match")
     }
-    // If the fields are empty
     else {
+      // register( name, email, password)
       toast.success("Everything don set, carry go")
       console.log("Everything don set, carry go")
-      // register( name, email, password)
+      setErrorMsg("")
+      console.log(data)
     }
 
   }
