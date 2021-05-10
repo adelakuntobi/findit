@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaUser } from 'react-icons/fa'
 import { BsLockFill } from 'react-icons/bs'
 import { ImPhone } from 'react-icons/im'
@@ -14,6 +14,12 @@ function Signup() {
     confirmPassword: ""
   })
   const [errorMsg, setErrorMsg] = useState("")
+
+  useEffect(() => {
+    setTimeout(() => {
+      console.log("Tobi")
+    }, 5000);
+  }, [])
   // Make initial object
   const { name, email, password, phoneNumber, confirmPassword } = data
 
@@ -28,7 +34,7 @@ function Signup() {
     // If the fields are empty
     if (!name || !email || !password || !confirmPassword || !phoneNumber) {
       toast.error("Please fill in the field(s)")
-      setErrorMsg("Please fill in the field(s)")
+      setErrorMsg("This field is required")
     }
     // Authenticate that password and confirm password are the same thing
     else if (password !== confirmPassword) {
@@ -57,30 +63,40 @@ function Signup() {
           <input className="border-0 outline-none w-full p-2 " onChange={handleChange('name')}
             placeholder="Ciroma Adekunle" type="text" name="name" />
         </div>
+        <span>{errorMsg}</span>
+        
         <label className="text-xl font-medium mb-1">Email</label>
         <div className="flex justify-start  px-4 border w-full mb-4 rounded items-center">
           <FaUser className="text-lg mr-2" />
           <input className="border-0 outline-none w-full p-2 " onChange={handleChange('email')}
             placeholder="example@email.com" type="email" name="email" />
         </div>
+        <span>{errorMsg}</span>
+        
         <label className="text-xl font-medium mb-1">Phone Number</label>
         <div className="flex justify-start  px-4 border w-full mb-4 rounded items-center">
           <ImPhone className="text-lg mr-2" />
           <input className="border-0 outline-none w-full p-2 " onChange={handleChange('phoneNumber')}
             placeholder="+234 8124 7837 822" type="text" name="phone number" />
         </div>
+        <span>{errorMsg}</span>
+
         <label className="text-xl font-medium mb-1">Password</label>
         <div className="flex justify-start px-4 border w-full mb-2 rounded items-center">
           <BsLockFill className="text-lg mr-2" />
           <input className="border-0 outline-none w-64 py-2 " onChange={handleChange('password')}
             placeholder="......." type="password" />
         </div>
+       <span>{errorMsg}</span>
+
         <label className="text-xl font-medium mb-1">Confirm Password</label>
         <div className="flex justify-start px-4 border w-full mb-2 rounded items-center">
           <BsLockFill className="text-lg mr-2" />
           <input className="border-0 outline-none w-64 py-2 " onChange={handleChange('confirmPassword')}
             placeholder="......." type="password" />
         </div>
+        <span>{errorMsg}</span>
+
         <button className="py-3 my-5 w-full bg-orange rounded border-0 outline-none text-white">Create Account</button>
       </form>
     </section>

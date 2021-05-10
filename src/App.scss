@@ -13,6 +13,10 @@ body {
   background-color: #FB6D3A;
 }
 
+.d-orange {
+  color: #FB6D3A;
+}
+
 .z-1 {
   transform: rotate(135deg);
   width: 700px;
@@ -23,7 +27,8 @@ body {
   height: 700px;
   z-index: 1;
 }
-.z-11{
+
+.z-11 {
   width: 1000px;
   // top: -100px;
   right: -600px;
@@ -42,7 +47,6 @@ body {
   width: 100%;
   z-index: 30;
   box-shadow: 2px 4px 7px 3px #0000000f;
-
 }
 
 .active {
@@ -58,6 +62,7 @@ body {
   width: 80px;
   height: 80px;
 }
+
 .lds-ripple div {
   position: absolute;
   border: 4px solid black;
@@ -65,9 +70,11 @@ body {
   border-radius: 50%;
   animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
+
 .lds-ripple div:nth-child(2) {
   animation-delay: -0.5s;
 }
+
 @keyframes lds-ripple {
   0% {
     top: 36px;
